@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Application Form</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Agency FB', 'Tahoma', 'Arial', 'Calibri', sans-serif;
+            background-color: #f8f9fa; /* Light gray background */
+        }
+
+        .card {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+        }
+
+        .card-title {
+            color:  green; 
+        }
+
+        .btn-primary {
+            background-color: #007bff; 
+            border-color: #007bff;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3; 
+            border-color: green;
+        }
+
+       
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="text-center mb-4 img-container">
+                    <img src="{% static 'IMG/logo.PNG' %}" class="img-fluid" alt="Institute Picture">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <!-- Student application form -->
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title text-center mb-4">Student Application Form</h2>
+                        <form method="post">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            
+                            <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
